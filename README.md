@@ -26,7 +26,7 @@ WORKDIR /app/quartz
 RUN npx quartz build
   
 # 使用 Nginx 作为生产服务器  
-FROM nginx:alpine  
+FROM nginx:alpine
 COPY --from=builder /app/quartz/public /usr/share/nginx/html
 COPY --from=builder /app/quartz/nginx.conf /etc/nginx/conf.d/default.conf
   
